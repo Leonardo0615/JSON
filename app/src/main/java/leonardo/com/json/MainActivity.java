@@ -3,18 +3,14 @@ package leonardo.com.json;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -59,9 +55,7 @@ public class MainActivity extends ActionBarActivity {
                 jsonObjectText = JsonParser.readJsonFromUrl(url[0]);
                 System.out.println(url[0]);
                 objetos[0] = jsonObjectText.getJSONObject("coord").getString("lon");
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (JSONException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
 
