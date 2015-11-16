@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
             url[0] = URL1;
             try {
                 jsonObjectText = JsonParser.readJsonFromUrl(url[0]);
-                objetos[0] = jsonObjectText.getJSONObject("main").getString("temp");
+                objetos[0] = jsonObjectText.getJSONArray("weather").getString(0);
             } catch (Exception e) {
                 e.printStackTrace();
             }
