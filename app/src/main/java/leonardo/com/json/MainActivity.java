@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
             try {
                 jsonObjectText = JsonParser.readJsonFromUrl(url[0]);
                 System.out.println(url[0]);
-                objetos[0] = jsonObjectText.getJSONObject("coord").getString("lon");
+                objetos[0] = jsonObjectText.getJSONObject("main").getString("temp");
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
         protected void onPostExecute(String[] stringFromDoInBackground) {
             name = (TextView)findViewById(R.id.textViewName);
 
-            name.setText("Coord"+stringFromDoInBackground[0]);
+            name.setText("Estado del clima: "+stringFromDoInBackground[0]);
 
             barr = (ProgressBar)findViewById(R.id.progressBar);
             barr.setVisibility(View.GONE);
