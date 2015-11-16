@@ -49,9 +49,9 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         protected String[] doInBackground(String... url) {
+            url[0] = URL1;
             try {
                 jsonObjectText = JsonParser.readJsonFromUrl(url[0]);
-                System.out.println(url[0]);
                 objetos[0] = jsonObjectText.getJSONObject("main").getString("temp");
             } catch (Exception e) {
                 e.printStackTrace();
@@ -63,10 +63,10 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         protected void onPostExecute(String[] stringFromDoInBackground) {
+            stringFromDoInBackground[0] = objetos[0];
             name = (TextView)findViewById(R.id.textViewName);
 
-            name.setText("Estado del clima: "+stringFromDoInBackground[0]);
-
+            name.setText("Estado del clima: " + stringFromDoInBackground[0]);
             barr = (ProgressBar)findViewById(R.id.progressBar);
             barr.setVisibility(View.GONE);
 
