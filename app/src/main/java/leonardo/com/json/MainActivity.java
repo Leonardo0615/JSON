@@ -15,8 +15,8 @@ public class MainActivity extends ActionBarActivity {
     ProgressBar barr;
     TextView name;
     String []objetos = new String[3];
-    String id = "London,uk";
-    String URL1 = "http://api.openweathermap.org/data/2.5/weather?q=" + id;
+    String id = "MXCE0008/c";
+    String URL1 = "https://mxrck-ser-programadores-apis.p.mashape.com/weather/forecast/"+id+".json?lang=es";
     JSONObject jsonObjectText;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,7 @@ public class MainActivity extends ActionBarActivity {
             url[0] = URL1;
             try {
                 jsonObjectText = JsonParser.readJsonFromUrl(url[0]);
-                objetos[0] = jsonObjectText.getString("name");
+                objetos[0] = jsonObjectText.getJSONObject("data").getJSONObject("weather").getString("temperature");
             } catch (Exception e) {
                 e.printStackTrace();
             }
